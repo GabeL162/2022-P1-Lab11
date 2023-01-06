@@ -12,9 +12,9 @@ public class Lab11avst
     {
         // This main method needs additions for the 100 point version.
         Scanner input = new Scanner(System.in);
-        final int MAX = 100;
-        boolean primes[];
-        primes = new boolean[MAX];
+        System.out.println("Enter the primes upper bound ===>>  ");
+        final int MAX = input.nextInt();
+        boolean primes[] = new boolean[MAX];
         computePrimes(primes);
         displayPrimes(primes);
     }
@@ -24,9 +24,6 @@ public class Lab11avst
         for(int k=2;k< primes.length;k++){
             primes[k] = true;
     }
-        // Step 2: Removing multiples of primes
-        //hint: nested loop
-        //use different variable for outside loop that adds 1 to itself every loop
 
         for(int index = 2; index < primes.length; index++){
             for(int k = index * 2; k < primes.length; k+=index){
@@ -40,10 +37,17 @@ public class Lab11avst
     {
         System.out.println("\n\nPRIMES BETWEEN 1 AND "+ primes.length);
         System.out.println();
-
+        int count = 0;
         for(int k=1;k< primes.length;k++){
-            if(primes[k]== true)
-            System.out.print(k + " ");
+
+            if(primes[k]== true) {
+                System.out.print(k + " ");
+                count++;
+                if(count % 15 == 0) {
+                    System.out.println("");
+                }
+            }
+
         }
     }
 
